@@ -1,0 +1,125 @@
+{
+  "caption": "Attribute Dictionary",
+  "description": "The Attribute Dictionary defines schema attributes and includes references to the events and objects in which they are used.",
+  "name": "dictionary",
+  "attributes": {
+    "arcticwolf_metadata": {
+      "caption": "Arctic Wolf Metadata",
+      "description": "The Arctic Wolf metadata object describes Arctic Wolf platform-specific attributes associated with the event.",
+      "type": "arcticwolf_metadata"
+    },
+    "attack_surface_uids": {
+      "caption": "Attack Surface IDs",
+      "description": "The list of normalized identifiers of the attack surfaces associated with the event. See specific usage.",
+      "sibling": "attack_surfaces",
+      "type": "integer_t",
+      "is_array": true,
+      "enum": {
+        "0": {
+          "caption": "Unknown",
+          "description": "The attack surface is unknown."
+        },
+        "1": {
+          "caption": "Web Application (WAF)"
+        },
+        "2": {
+          "caption": "Endpoint (EDR/EPP)"
+        },
+        "3": {
+          "caption": "Identity (IAM/SSO)"
+        },
+        "4": {
+          "caption": "Network (Firewall)"
+        },
+        "5": {
+          "caption": "Email Security"
+        },
+        "6": {
+          "caption": "SaaS/Application Security"
+        },
+        "7": {
+          "caption": "Network (SASE/SSE/ZTNA)"
+        },
+        "8": {
+          "caption": "Identity (PAM)"
+        },
+        "9": {
+          "caption": "Cloud (IaaS)"
+        },
+        "10": {
+          "caption": "Data Security (DLP)"
+        },
+        "11": {
+          "caption": "Network (NDR)"
+        },
+        "12": {
+          "caption": "Infrastructure / Directory"
+        },
+        "13": {
+          "caption": "Cloud (CNAPP/CSPM)"
+        },
+        "14": {
+          "caption": "Vulnerability Management"
+        },
+        "15": {
+          "caption": "SIEM/XDR"
+        },
+        "16": {
+          "caption": "OT/ICS/IoT"
+        },
+        "17": {
+          "caption": "Backup / Compliance"
+        },
+        "18": {
+          "caption": "IT Asset Mgmt / RMM / UEM"
+        },
+        "19": {
+          "caption": "Identity (IGA)"
+        },
+        "20": {
+          "caption": "Network (NAC)"
+        },
+        "99": {
+          "caption": "Other",
+          "description": "The attack surface is not mapped. See the <code>attack_surfaces</code> attribute, which contains a data source specific value."
+        }
+      }
+    },
+    "attack_surfaces": {
+      "caption": "Attack Surfaces",
+      "description": "The list of attack surfaces associated with the event, normalized to the captions of the <code>attack_surface_uids</code> values. In the case of 'Other', they are defined by the event source.",
+      "type": "string_t",
+      "is_array": true
+    },
+    "customer": {
+      "caption": "Customer",
+      "description": "The Arctic Wolf customer associated with the event.",
+      "type": "arcticwolf_customer"
+    },
+    "ingestion_service": {
+      "caption": "Service",
+      "description": "The Arctic Wolf service that produced the event.",
+      "type": "arcticwolf_service"
+    },
+    "deployment": {
+      "caption": "Deployment",
+      "description": "The Arctic Wolf deployment associated with the event.",
+      "type": "arcticwolf_deployment"
+    },
+    "endpoint": {
+      "caption": "Endpoint",
+      "description": "The service endpoint associated with the event. See specific usage.",
+      "type": "arcticwolf_endpoint"
+    },
+    "id": {
+      "caption": "ID",
+      "description": "The unique identifier. See specific usage.",
+      "type": "string_t"
+    },
+    "timestamp": {
+      "caption": "Event Timestamp",
+      "description": "The event timestamp determined by Arctic Wolf using a datetime as defined in RFC 3339",
+      "type": "datetime_t"
+    }
+  }
+}

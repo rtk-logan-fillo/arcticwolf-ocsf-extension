@@ -1,0 +1,12 @@
+{
+  "uid": 1,
+  "caption": "Arctic Wolf Base Event",
+  "description": "The Arctic Wolf Base Event extends the core Base Event.",
+  "extends": "base_event",
+  "attributes": {
+    "arcticwolf_metadata": {
+      "group": "context",
+      "requirement": "required"
+    }
+  }
+}

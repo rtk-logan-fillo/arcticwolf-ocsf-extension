@@ -1,0 +1,16 @@
+{
+  "caption": "Arctic Wolf Deployment",
+  "description": "The Arctic Wolf Deployment object describes the Arctic Wolf deployment associated with the event.",
+  "extends": "object",
+  "name": "arcticwolf_deployment",
+  "attributes": {
+    "id": {
+      "description": "The unique identifier of the Arctic Wolf deployment.",
+      "requirement": "required"
+    },
+    "uuid": {
+      "description": "The unique identifier (UUID) of the Arctic Wolf deployment.",
+      "requirement": "required"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "uid": 2,
+  "caption": "Arctic Wolf Detection Finding",
+  "description": "The Arctic Wolf Detection Finding alters the Detection Finding class",
+  "extends": "detection_finding",
+  "attributes": {
+    "finding_info": {
+      "requirement": "recommended"
+    }
+  }
+}

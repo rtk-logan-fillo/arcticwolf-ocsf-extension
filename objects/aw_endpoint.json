@@ -1,0 +1,12 @@
+{
+  "caption": "Arctic Wolf Service Endpoint",
+  "description": "The Arctic Wolf Service Endpoint object describes a service endpoint associated with the event.",
+  "extends": "object",
+  "name": "arcticwolf_endpoint",
+  "attributes": {
+    "name": {
+      "description": "The name of the service endpoint.",
+      "requirement": "optional"
+    }
+  }
+}

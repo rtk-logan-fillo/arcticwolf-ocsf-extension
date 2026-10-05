@@ -1,0 +1,16 @@
+{
+  "caption": "Arctic Wolf Customer",
+  "description": "The Arctic Wolf Customer object describes the Arctic Wolf customer associated with the event.",
+  "extends": "object",
+  "name": "arcticwolf_customer",
+  "attributes": {
+    "id": {
+      "description": "The unique identifier of the Arctic Wolf customer.",
+      "requirement": "required"
+    },
+    "uuid": {
+      "description": "The unique identifier (UUID) of the Arctic Wolf customer.",
+      "requirement": "required"
+    }
+  }
+}

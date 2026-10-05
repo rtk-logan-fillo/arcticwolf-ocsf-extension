@@ -1,0 +1,31 @@
+{
+  "caption": "Arctic Wolf Metadata",
+  "description": "The Arctic Wolf metadata object describes Arctic Wolf platform-specific attributes associated with the event, including the customer, deployment, monitored attack surfaces, and telemetry type.",
+  "extends": "object",
+  "name": "arcticwolf_metadata",
+  "attributes": {
+    "attack_surface_uids": {
+      "description": "The normalized identifiers of the attack surfaces that generated or are associated with the event.",
+      "requirement": "optional"
+    },
+    "attack_surfaces": {
+      "description": "The Arctic Wolf attack surfaces that generated or are associated with the event. For example <code>Web Application (WAF)</code> or <code>Email Security</code>.",
+      "requirement": "optional"
+    },
+    "customer": {
+      "description": "The Arctic Wolf customer associated with the event.",
+      "requirement": "required"
+    },
+    "deployment": {
+      "description": "The Arctic Wolf deployment associated with the event.",
+      "requirement": "required"
+    },
+    "ingestion_service": {
+      "description": "The Arctic Wolf service associated with the event.",
+      "requirement": "optional"
+    },
+    "timestamp": {
+      "requirement": "required"
+    }
+  }
+}

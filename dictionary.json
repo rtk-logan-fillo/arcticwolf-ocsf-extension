@@ -3,7 +3,7 @@
   "description": "The Attribute Dictionary defines schema attributes and includes references to the events and objects in which they are used.",
   "name": "dictionary",
   "attributes": {
-    "arcticwolf_metadata": {
+    "arcticwolf": {
       "caption": "Arctic Wolf Metadata",
       "description": "The Arctic Wolf metadata object describes Arctic Wolf platform-specific attributes associated with the event.",
       "type": "arcticwolf_metadata"
@@ -97,9 +97,8 @@
       "type": "arcticwolf_customer"
     },
     "ingestion_service": {
-      "caption": "Service",
-      "description": "The Arctic Wolf service that produced the event.",
-      "type": "arcticwolf_service"
+      "caption": "Ingestion Service",
+      "type": "arcticwolf_ingestion_service"
     },
     "deployment": {
       "caption": "Deployment",

@@ -1,0 +1,11 @@
+{
+  "caption": "Categories",
+  "description": "The OCSF categories organize event classes, each aligned with a specific domain or area of focus.",
+  "attributes": {
+        "uncategorized": {
+            "uid": 0,
+            "caption": "Uncategorized",
+            "description": "Uncategorized Events"
+        }
+    }   
+}

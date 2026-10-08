@@ -10,7 +10,7 @@
     },
     "uuid": {
       "description": "The unique identifier (UUID) of the Arctic Wolf customer.",
-      "requirement": "required"
+      "requirement": "recommended"
     }
   }
 }

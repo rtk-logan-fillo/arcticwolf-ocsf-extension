@@ -1,11 +1,11 @@
 {
-  "caption": "Arctic Wolf Service",
+  "caption": "Arctic Wolf Ingestion Service",
   "description": "The Arctic Wolf Service object describes the service associated with the event.",
   "extends": "object",
-  "name": "arcticwolf_service",
+  "name": "arcticwolf_ingestion_service",
   "attributes": {
     "endpoint": {
-      "description": "The service endpoint associated with the event.",
+      "description": "The ingestion service endpoint associated with the event.",
       "requirement": "optional"
     }
   }

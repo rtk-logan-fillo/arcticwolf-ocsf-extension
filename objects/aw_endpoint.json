@@ -6,7 +6,7 @@
   "attributes": {
     "name": {
       "description": "The name of the service endpoint.",
-      "requirement": "optional"
+      "requirement": "required"
     }
   }
 }

@@ -25,7 +25,7 @@
       "requirement": "optional"
     },
     "timestamp": {
-      "requirement": "required"
+      "requirement": "recommended"
     }
   }
 }

@@ -4,46 +4,15 @@
   "description": "VENDOR OVERFLOW IS NOT MEANT TO BE USED FOR CREATING GENERALIZED DETECTIONS OR REPORTS, THERE ARE NO GUARUNTEES FOR DATA SIMILARITY OR THE ABILITY TO CREATE GENERIC DETECTIONS. THIS IS MEANT AS A STOPGAP MEASURE SO WE CAN PARSE ALL OBSERVATIONS WHILE STILL GETTING OTHER TELEMETRY TYPES ONLINE.",
   "category": "uncategorized",
   "name": "vendor_overflow",
+  "extends": "base_event",
   "attributes": {
-    "activity_id": {
-      "group": "classification",
-      "requirement": "required",
-      "enum": {
-        "0": {
-          "caption": "Unknown"
-        },
-        "99": {
-          "caption": "Other"
-        }
-      }
-    },
     "actor": {
       "group": "primary",
       "requirement": "optional"
     },
-    "arcticwolf": {
-      "group": "context",
-      "requirement": "required"
-    },
     "attacks": {
       "group": "primary",
       "requirement": "optional"
-    },
-    "category_name": {
-      "group": "classification",
-      "requirement": "optional"
-    },
-    "category_uid": {
-      "group": "classification",
-      "requirement": "required"
-    },
-    "class_name": {
-      "group": "classification",
-      "requirement": "optional"
-    },
-    "class_uid": {
-      "group": "classification",
-      "requirement": "required"
     },
     "device": {
       "group": "primary",
@@ -65,41 +34,13 @@
       "group": "primary",
       "requirement": "optional"
     },
-    "message": {
-      "group": "primary",
-      "requirement": "optional"
-    },
-    "metadata": {
-      "group": "context",
-      "requirement": "required"
-    },
     "policies": {
       "group": "primary",
       "requirement": "optional"
     },
-    "severity": {
-      "group": "classification",
-      "requirement": "optional"
-    },
-    "severity_id": {
-      "group": "classification",
-      "requirement": "required"
-    },
     "src_endpoint": {
       "group": "primary",
       "requirement": "optional"
-    },
-    "time": {
-      "group": "occurrence",
-      "requirement": "required"
-    },
-    "type_name": {
-      "group": "classification",
-      "requirement": "optional"
-    },
-    "type_uid": {
-      "group": "classification",
-      "requirement": "required"
     },
     "user": {
       "group": "primary",

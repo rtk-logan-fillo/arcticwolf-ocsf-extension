@@ -1,0 +1,79 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          status=0
+          while IFS= read -r -d '' file; do
+            if ! jq empty "$file" 2> /tmp/jq.err; then
+              echo "::error file=$file::$(cat /tmp/jq.err)"
+              status=1
+            fi
+          done < <(git ls-files -z '*.json')
+          exit $status
+
+  release:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read version
+        id: version
+        run: |
+          version="$(jq -er '.version' extension.json | tr -d '[:space:]')"
+          if ! [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error file=extension.json::'$version' is not a valid semantic version"
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether tag already exists
+        id: tag_check
+        run: |
+          if git ls-remote --exit-code --tags origin "refs/tags/${{ steps.version.outputs.tag }}" > /dev/null; then
+            echo "::warning::Tag ${{ steps.version.outputs.tag }} already exists; bump version in extension.json to publish a new release."
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build repository archives
+        if: steps.tag_check.outputs.exists == 'false'
+        run: |
+          name="arcticwolf-ocsf-extension-${{ steps.version.outputs.version }}"
+          mkdir -p dist
+          for format in tar.gz zip; do
+            git archive --format="$format" --prefix="$name/" -o "dist/$name.$format" HEAD
+          done
+
+      - name: Create tag and release
+        if: steps.tag_check.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ steps.version.outputs.tag }}" dist/* \
+            --target "${{ github.sha }}" \
+            --title "${{ steps.version.outputs.tag }}" \
+            --generate-notes
